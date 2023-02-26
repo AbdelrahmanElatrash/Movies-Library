@@ -1,28 +1,34 @@
 # Movies-Library
-
+a movie app that can check the latest movies based on categoriest buildin with node.js [node.js](https://docs.npmjs.com/) and node express framework [exprese doc.](https://expressjs.com/)
 
 
 **Author Name**: Abdelrahman Elatrash
 
+
 ## WRRC
+![This is an image](./wrrc.webp)
 
 ## Overview
-this project build using [node.js](https://docs.npmjs.com/)
-with expres framework [exprese doc.](https://expressjs.com/)
-will build a movie app that can check the latest movies based on categories.
+we  build a web application as a lebrary of movies classified by there categories
+this part is show you a list of movies that we have with some description to let you choes what movies you want to show;
+
 
 ## Getting Started
 this backend part of our project
 
 install dependences
-
-run this comand in home directory Movies-Library
+all dependences are in `package.json` file  
+run this comand in home directory Movies-Library it will install all dependences for project
 npm install
 
-see package.json file for specific version
+
 
 start the server run comand in the Movies-Library directory
 npm start
+or 
+npm run devStart
+
+
 
 ## Project Features
 the projec will run on the localhost with port 3000
