@@ -1,9 +1,10 @@
 
 
 class Movies{
-    constructor(id,title,posterPath,overview){
+    constructor(id,title,release_date,posterPath,overview){
         this.id=id;
         this.title=title;
+        this.release_date=release_date;
         this.posterPath=posterPath;
         this.overview=overview
     }
@@ -28,4 +29,5 @@ class Movies{
 
 // console.log(spiderMan);
 
-export {Movies} ;
+// export  {Movies} ;
+module.exports=Movies;
