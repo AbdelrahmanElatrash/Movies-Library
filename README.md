@@ -6,11 +6,13 @@ a movie app that can check the latest movies based on categoriest buildin with n
 
 
 ## WRRC
-![This is an image](./wrrc.webp)
+![This is wrrc image](./wrrc.png)
 
 ## Overview
 we  build a web application as a lebrary of movies classified by there categories
 this part is show you a list of movies that we have with some description to let you choes what movies you want to show;
+now our app working with 3rd party api we are fetching data from website THE MOVIE DB
+(https://www.themoviedb.org/) , that's give us information about movies,trending movies,search movies and more
 
 
 ## Getting Started
@@ -28,16 +30,19 @@ npm start
 or 
 npm run devStart
 
+required api key 
+create account and get api key from (https://www.themoviedb.org/)
+then replace APIKEY VALUE with your value in [./server.js] file
 
 
 ## Project Features
 the projec will run on the localhost with port 3000
 [home page](http://localhost:3000/);
-
+**
 GET http://localhost:3000/ 
 the server response with data
-{"title":"Spider-Man: No Way Home","poster_path":"/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg","overview":"Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man."}
-
+{"title":"Spider-Man: No Way Home","poster_path":"/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg","relase-date": 34-12-1987,"overview":"Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man."}
+**
 [favert page](http://localhost:3000/favorite)
 GET http://localhost:3000/favorite
 
@@ -45,3 +50,33 @@ the server response with data
 
 "Welcome to Favorite Page"
 
+**
+'/trending' page
+here you can get the trending movies 
+['/trending' page](http://localhost:3000/trending)
+GET http://localhost:3000/trending
+response json
+({
+    "id":453,
+    "title":"titanic",
+    "relase-date": 34-12-1987,
+    "overview":"story about movie and ...",
+    "poster_path":"/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
+})
+
+
+**
+search a movie
+'/search/:movie_name'
+here you can search for a movie by movie name and will get all movies have samiler name
+[/search/:movie_name](http://localhost:3000/search/{NAME OF MOVIE})
+GET http://localhost:3000/search/{Ttitanc}
+
+response json
+({
+    "id":453,
+    "title":"titanic",
+    "relase-date": 34-12-1987,
+    "overview":"story about movie and ...",
+    "poster_path":"/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
+})
