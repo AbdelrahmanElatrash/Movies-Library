@@ -58,8 +58,9 @@ router.get('/trending', (req, res,next) => {
   })
   
   // ########### search a movie ######################################################
-  router.get('/search/:movie_name', (reg, res,next) => {
-    let movieName=reg.params.movie_name
+  router.get('/search', (req, res,next) => {   ///:movie_name
+    let movieName=req.query.movie ;
+    // let movieName=reg.params.movie_name
     // console.log(movieName);
     try {
       const searchURL = `https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}&query=${movieName}`;

@@ -82,7 +82,7 @@ response json
 search a movie
 '/search/:movie_name'
 here you can search for a movie by movie name and will get all movies have samiler name
-[/search/:movie_name](http://localhost:3000/search/{NAME OF MOVIE})
+[/search](http://localhost:3000/search?movie={NAME OF MOVIE})
 GET http://localhost:3000/search/{Ttitanc}
 
 response json
