@@ -14,6 +14,8 @@ this part is show you a list of movies that we have with some description to let
 now our app working with 3rd party api we are fetching data from website THE MOVIE DB
 (https://www.themoviedb.org/) , that's give us information about movies,trending movies,search movies and more
 
+add movies to our database we are working on postgresql database(https://www.postgresql.org/)
+
 
 ## Getting Started
 this backend part of our project
@@ -33,6 +35,17 @@ npm run devStart
 required api key 
 create account and get api key from (https://www.themoviedb.org/)
 then replace APIKEY VALUE with your value in [./server.js] file
+
+
+## database
+install postgre sql database (https://www.postgresql.org/)
+
+create database called [movies]
+
+in MOVIES-LIBRARY   directory run this command to create table
+psql -d movies -f schema.sql
+
+
 
 
 ## Project Features
@@ -80,3 +93,29 @@ response json
     "overview":"story about movie and ...",
     "poster_path":"/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
 })
+
+
+get movies from our database 
+GET http://localhost:3000/movies
+
+response json
+({
+    "id":453,
+    "title":"titanic",
+    "relase-date": 34-12-1987,
+    "overview":"story about movie and ...",
+    "poster_path":"/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
+})
+
+post new movies to database
+
+POST http://localhost:3000/movies
+
+body:{
+    "title":"titanic",
+    "relase-date": 34-12-1987,
+    "overview":"story about movie and ...",
+    "poster_path":"/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
+}
+response 
+data was added to DB
