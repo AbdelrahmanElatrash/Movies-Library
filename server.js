@@ -19,10 +19,10 @@ app.use(cors());
 
 
 // #######  home page  #############################################################
-app.get('/', (req, res) => {
+app.get('/', (req, res,next) => {
 
     
-    let result=data.moviesData.map((item)=>{
+      let result=data.moviesData.map((item)=>{
       let newMovie=new Movies(item.id,item.title,item.posterPath,item.overview);
       console.log(newMovie);
       return newMovie ;
@@ -35,7 +35,7 @@ app.get('/', (req, res) => {
 
 
 // ########  favorite page  ######################################################
-app.get('/favorite', (req, res) => {
+app.get('/favorite', (req, res,next) => {
     res.send("Welcome to Favorite Page")
 });
 
@@ -43,20 +43,28 @@ app.get('/favorite', (req, res) => {
 
 // ###########  error handler   ######################################################
 
-app.use((req, res, next) => {
-  const error=new Error('not foun');
-  error.status=404;
-  next(error);
-  });
+const errorHandler = (err, req, res,next)=> {
+  // Error handling middleware functionality
+  console.error(err.stack)
+  res.status(err.status || 500);
+  res.json({err:{"status":500,
+             'message':"internal server error"}
+    
+})
+}
 
-app.use((error, req, res, next) => {
 
-    console.error(error.stack)
-    res.status(error.status || 500);
-    res.json({
-            error:{message:' sorry internal server error'}
-    })
-  });
+const invalidPathHandler = (req, res) => {
+  res.status(404)
+  res.json({error:{status:404,
+                'message':'not found'}
+                 })
+  
+}
+
+app.use(errorHandler);
+app.use(invalidPathHandler);
+
 
 // #####################################################
 const PORT=3000;
