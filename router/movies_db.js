@@ -6,8 +6,8 @@ const pg=require('pg');
 
 require('dotenv').config({ path: '.dotenv' });
 const dataBaseURL=process.env.DATABASE_URL
-const client = new pg.Client('postgres://a@127.0.0.1:5432/moviesdb');
-console.log(dataBaseURL);
+const client = new pg.Client(dataBaseURL);  //'postgres://a@127.0.0.1:5432/moviesdb'
+// console.log(dataBaseURL);
 
 client.connect();
 //   routes   ..............................................................
@@ -36,7 +36,12 @@ router.post('/',(req,res,next)=>{
     const sql=`INSERT INTO movies (title,release_date,posterPath,overview) VALUES('${title}','${release_date}','${posterPath}','${overview}');`
     client.query(sql)
     .then((data)=>{
-        res.send('data was added to DB')
+        res.status(200).json({"data":{"title":title,
+                                      "release_date":release_date,
+                                      "posterPath":posterPath,
+                                      "overview":overview
+    }
+})
     })
     .catch((err)=>{
         next(err);
@@ -44,6 +49,9 @@ router.post('/',(req,res,next)=>{
     
     
 })
+
+
+
 
 
 module.exports=router ;
