@@ -6,7 +6,7 @@ const pg=require('pg');
 
 require('dotenv').config({ path: '.dotenv' });
 const dataBaseURL=process.env.DATABASE_URL
-const client = new pg.Client(dataBaseURL);
+const client = new pg.Client('postgres://a@127.0.0.1:5432/moviesdb');
 console.log(dataBaseURL);
 
 client.connect();
