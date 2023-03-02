@@ -118,4 +118,33 @@ body:{
     "poster_path":"/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
 }
 response 
-data was added to DB
+    data:{
+    "title":"titanic",
+    "relase-date": 34-12-1987,
+    "overview":"story about movie and ...",
+    "poster_path":"/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
+}
+
+
+delete movie by id 
+DELETE http://localhost:3000/movies/{ID}
+response 
+    data wase deleted
+
+edit movie by id 
+ PUT http://localhost:3000/movies/{ID}
+
+    body:{
+    "title":"new title",
+    "relase-date": 34-12-1987,
+    "overview":" new story about movie and ...",
+    "poster_path":"/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
+}
+
+response
+    body:{
+    "title":"new title",
+    "relase-date": 34-12-1987,
+    "overview":" new story about movie and ...",
+    "poster_path":"/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
+}
