@@ -34,11 +34,14 @@ router.get('/trending', (req, res,next) => {
       const trendingURL = `https://api.themoviedb.org/3/trending/movie/day?api_key=${APIKEY}`;
       axios.get(trendingURL)
         .then((result) => {
-  
-          
+       
+          // let imgurl=`https://www.themoviedb.org/t/p/w220_and_h330_face${item.poster_path}`
           let movieResult = result.data.results;
+         
           let finalResult = movieResult.map((item) => {
-            let singleMovie = new Movies(item.id, item.title, item.release_date, item.poster_path, item.overview);
+
+            let singleMovie = new Movies(item.id, item.title, item.release_date, `https://www.themoviedb.org/t/p/w220_and_h330_face${item.poster_path}`, item.overview);
+            
             return singleMovie;
           }
           );
@@ -72,7 +75,7 @@ router.get('/trending', (req, res,next) => {
             
             // console.log(movieResult.length);
             let finalResult = movieResult.map((item) => {
-            let singleMovie = new Movies(item.id, item.title, item.release_date, item.poster_path, item.overview);
+            let singleMovie = new Movies(item.id, item.title, item.release_date, `https://www.themoviedb.org/t/p/w220_and_h330_face${item.poster_path}`, item.overview);
             return singleMovie;
           }
           );
@@ -103,7 +106,7 @@ router.get('/trending', (req, res,next) => {
           
           let movieResult = result.data.results;
           let finalResult = movieResult.map((item) => {
-            let singleMovie = new Movies(item.id, item.title, item.release_date, item.poster_path, item.overview);
+            let singleMovie = new Movies(item.id, item.title, item.release_date, `https://www.themoviedb.org/t/p/w220_and_h330_face${item.poster_path}`, item.overview);
             return singleMovie;
           }
           );
@@ -131,7 +134,7 @@ router.get('/trending', (req, res,next) => {
           
           let movieResult=result.data.results
           let finalResult = movieResult.map((item) => {
-            let singleMovie = new Movies(item.id, item.title, item.release_date, item.poster_path, item.overview);
+            let singleMovie = new Movies(item.id, item.title, item.release_date, `https://www.themoviedb.org/t/p/w220_and_h330_face${item.poster_path}`, item.overview);
             return singleMovie;
           }
           );
