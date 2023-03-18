@@ -48,9 +48,10 @@ router.post('/',(req,res,next)=>{
     let release_date=data.relaseDate;
     let posterPath=data.posterPath;
     let overview=data.overVewo;
-
-    const sql=`INSERT INTO movies (title,release_date,posterPath,overview) VALUES('${title}','${release_date}','${posterPath}','${overview}');`
-    client.query(sql)
+    
+    const sql=`INSERT INTO movies (title,release_date,posterPath,overview) VALUES($1,$2,$3,$4)RETURNING *;`
+    const values = [title,release_date,posterPath,overview];
+    client.query(sql,values)
     .then((data)=>{
         res.status(200).json({"data":{"title":title,
                                       "release_date":release_date,

@@ -6,4 +6,5 @@ CREATE TABLE IF NOT EXISTS movies (
     release_date DATE ,
     posterPath VARCHAR(255),
     overview VARCHAR(10000)
+    -- commint VARCHAR(255)
 );
