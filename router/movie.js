@@ -23,11 +23,6 @@ router.get('/', (req, res) => {
     res.json({ result })
 })
 
-router.get('/favorite', (req, res) => {
-    res.send("Welcome to Favorite Page")
-  });
-
-
 // ####### trending page #############################################################
 router.get('/trending', (req, res,next) => {
     try {
